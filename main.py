@@ -1,4 +1,4 @@
-from Other_functions import *
+from other_functions import *
 
 
 def main():
