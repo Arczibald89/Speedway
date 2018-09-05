@@ -1,6 +1,6 @@
-from Data import *
-from Team import Team
-from Match import *
+from data import *
+from team import Team
+from match import *
 import random
 
 
