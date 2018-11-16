@@ -83,29 +83,34 @@ def next_rider(teams):
     input("\n Naciśnij ENTER by zobaczyć listę zawodników dostępnych do wyboru!")
     while riders_list:
         for team in teams:
-            if len(team.riders) < 8:
-                if team.human:
-                    good_choice = False
-                    while not good_choice:
-                        try:
-                            show_available_riders()
-                            number = int(input("Wprowadź numer zawodnika, którego chcesz wybrać do zespołu (0 - " +
-                                               str(len(riders_list) - 1) + ") \n"))
-                            team.riders.append(riders_list[number])
-                            riders_list.pop(number)
-                            team.show_team()
-                            print()
-                            good_choice = True
-                        except (ValueError, IndexError):
-                            pass
-
-                else:
-                    team.comp_next_rider(riders_list)
-            else:
-                pass
-    else:
-        pass
+            pick_rider(team)
     assign_riders(teams)
+
+
+def pick_rider(team):
+    max_riders = 8
+    if len(team.riders) < max_riders:
+        if team.human:
+            human_rider(team)
+
+        else:
+            team.comp_next_rider(riders_list)
+
+
+def human_rider(team):
+    good_choice = False
+    while not good_choice:
+        try:
+            show_available_riders()
+            number = int(input("Wprowadź numer zawodnika, którego chcesz wybrać do zespołu (0 - " +
+                               str(len(riders_list) - 1) + ") \n"))
+            team.riders.append(riders_list[number])
+            riders_list.pop(number)
+            team.show_team()
+            print()
+            good_choice = True
+        except (ValueError, IndexError):
+            pass
 
 
 def assign_riders(teams):
@@ -140,8 +145,7 @@ def show_schedule():
             num += 1
             for game in day:
                 print(str(game[0]) + " - " + str(game[1]))
-    else:
-        pass
+
 
 
 def show_season_table(teams):

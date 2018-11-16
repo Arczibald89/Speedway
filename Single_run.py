@@ -9,8 +9,8 @@ def single_run(run, run_num):
     run_num - run number(1-15).
     Rider can fall, have defect or finish run successfully.
 
-    Function adds every rider's time to rider's instance and to the time_list then checks order, adds points,
-    shows run result and updates match result.
+    Function adds every rider's time to rider's instance and to the time_list, then checks order, adds points,
+    shows run result, and updates match result.
     """
     time_max = 82.00        # Maximal time in seconds. Always the same.
     time_list = []
@@ -66,7 +66,7 @@ def single_run(run, run_num):
 def single_run_comp(run):
     """
     Single run scheme in Computer's matches.
-    Opposite to Player's scheme doesn't show result of single run. Checks order and adds points and update match
+    Opposite to Player's scheme doesn't show the result of a single run. Checks order and adds points, and updates match
     result only.
     """
     time_max = 82.00        # Maximal time in seconds. The same in all tracks.
@@ -112,7 +112,7 @@ def single_run_comp(run):
 
 
 def remove_riders_and_times():
-    """ Function resets data after single run."""
+    """ Function resets data after a single run."""
     time_list = []
     run_list = []
     return time_list, run_list
@@ -273,8 +273,8 @@ def sort_run_results(time_list, run_list):
 def check_bonus_points(run_list_sorted):
     """
     Function checks if rider gets bonus point.
-    Rider gets one bonus point when he finished second or third and rider from his team finished one place higher
-    then him.
+    Rider gets one bonus point if he finished second or third, and another rider from his team finished one place higher
+    than him.
     """
     home_sum = 0
     away_sum = 0
@@ -308,7 +308,7 @@ def check_bonus_points(run_list_sorted):
 
 def check_regular_points(time_list, run_list, home_team, away_team, home_sum, away_sum):
     """
-    Function adds regular points to riders. (3 points for 1st place, 2 points for 2nd place, 1 point for 3rd,
+    Function adds regular points to the riders. (3 points for 1st place, 2 points for 2nd place, 1 point for 3rd,
     0 points for 4 place).
     """
     for rider in run_list:
@@ -356,8 +356,6 @@ def check_regular_points(time_list, run_list, home_team, away_team, home_sum, aw
                     if rider.run_time == time_list[3]:
                         rider.match_stats.append(0)
                         rider.match_points += 0
-                else:
-                    pass
         except IndexError:
             continue
     return home_team, away_team, home_sum, away_sum, time_list, run_list
@@ -467,7 +465,7 @@ def pick_tactical_substitute(run, match_list, number):
 
 def tactical_substitute(run, player, computer):
     """
-    Function checks if tactical substitution is available and if so, does it. (In speedway tactical substitute is
+    Function checks if tactical substitution is available and if so, does it. (In speedway, tactical substitute is
     possible when team is loosing by minimum 6 points).
     """
     if (player.match_points - computer.match_points) < -5:

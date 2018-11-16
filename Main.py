@@ -7,7 +7,7 @@ def main():
     next_rider(teams)
     schedule_set(teams)
     regular_season(teams)
-    pass
+
 
 
 main()
