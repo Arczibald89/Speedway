@@ -9,5 +9,5 @@ def main():
     regular_season(teams)
 
 
-
-main()
+if __name__ == '__main__':
+  main()
