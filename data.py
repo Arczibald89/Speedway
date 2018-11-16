@@ -1,4 +1,4 @@
-from Rider import Rider
+from rider import Rider
 
 
 team_names = ["Wrocław", "Leszno", "Grudziądz", "Częstochowa", "Tarnów", "Zielona Góra", "Gorzów Wlkp.", "Toruń"]
